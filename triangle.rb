@@ -27,7 +27,7 @@ def triangle(a, b, c)
       :equilateral
     when 2
       :isosceles
-    when 3
+    else
       :scalene
   end
 
