@@ -1,3 +1,6 @@
+# Ignore .path_progress file
+.path_progress
+
 # Ignore .idea folder
 .idea
 
