@@ -15,24 +15,15 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  # taken from http://stackoverflow.com/questions/3834203/ruby-koan-151-raising-exceptions
 
-  triangle_sides = Array.new
-
-  triangle_sides << a << b << c
-
-  triangle_sides_check = triangle_sides.uniq.length
-
-  case triangle_sides_check
-    when 1
-      :equilateral
-    when 2
-      :isosceles
-    else
-      :scalene
-  end
+  a, b, c = [a, b, c].sort
+  raise TriangleError if a <= 0 || a + b <= c
+  [nil, :equilateral, :isosceles, :scalene][[a, b, c].uniq.size]
 
 end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+
 end
