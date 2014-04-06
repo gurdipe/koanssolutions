@@ -31,17 +31,53 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
-  case dice
-    when dice.uniq
-      0
-    when 5
-      50
-    when 1
-      100
-    when [1,5,5,1]
-      300
+
+  sum = 0
+
+  if dice.empty?
+    return sum
+
+  else
+
+    if dice.count(1) >= 3
+      sum = sum + 1000
+
+      3.times do
+        dice.delete_at(dice.index(1))
+      end
+
+    end
+
+    (2..6).each do |n|
+
+      if dice.count(n) >= 3
+        sum = n*100
+
+        3.times do
+          dice.delete_at(dice.index(n))
+        end
+
+      end
+
+    end
+
+    dice.each do | value |
+
+     if value == 5
+       sum = sum + 50
+     end
+
+
+     if value == 1
+       sum = sum + 100
+     end
+
+    end
+
+    return sum
 
   end
+
 end
 
 class AboutScoringProject < Neo::Koan
@@ -86,3 +122,4 @@ class AboutScoringProject < Neo::Koan
   end
 
 end
+
