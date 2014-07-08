@@ -1,8 +1,16 @@
 # Ignore .path_progress file
 .path_progress
 
-# Ignore .idea folder
-.idea
+# Ignore following files
 
-# Ignore .rvmrc file
+.ruby-version
+.ruby-gemset
 .rvmrc
+
+*.swp
+*~
+
+.DS_Store
+
+.project
+.idea
